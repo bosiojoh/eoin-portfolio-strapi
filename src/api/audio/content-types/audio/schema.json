@@ -35,13 +35,18 @@
       "type": "enumeration",
       "enum": [
         "mp3",
-        "soundcloud-song",
-        "soundcloud-playlist",
-        "spotify",
-        "spotify-playlist",
-        "spotify-album"
+        "soundcloud",
+        "spotify"
       ],
       "default": "mp3"
+    },
+    "mp3_cover_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
