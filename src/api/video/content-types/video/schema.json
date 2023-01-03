@@ -12,30 +12,34 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
-      "type": "string"
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 120
     },
-    "File": {
+    "file": {
       "type": "media",
       "multiple": false,
       "required": false,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+        "videos"
       ]
     },
-    "Description": {
+    "description": {
       "type": "text"
     },
-    "Type": {
+    "type": {
       "type": "enumeration",
       "enum": [
         "file",
         "youtube",
         "vimeo"
-      ]
+      ],
+      "default": "file",
+      "required": true
+    },
+    "link": {
+      "type": "string"
     }
   }
 }
