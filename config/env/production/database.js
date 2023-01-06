@@ -1,19 +1,34 @@
-const { parse } = require("pg-connection-string");
+// const { parse } = require("pg-connection-string");
 
-module.exports = ({ env }) => {
-  const { host, port, database, user, password } = parse(env("DATABASE_URL"));
+// module.exports = ({ env }) => {
+//   const { host, port, database, user, password } = parse(env("DATABASE_URL"));
 
-  return {
+//   return {
+//     connection: {
+//       client: "postgres",
+//       connection: {
+//         host,
+//         port,
+//         database,
+//         user,
+//         password
+//       },
+//       debug: false,
+//     },
+//   };
+// };
+console.log('being processed')
+
+module.exports = ({ env }) => ({
+  connection: {
+    client: 'postgres',
     connection: {
-      client: "postgres",
-      connection: {
-        host,
-        port,
-        database,
-        user,
-        password
-      },
-      debug: false,
-    },
-  };
-};
+      host: env("DATABASE_HOST"),
+      port: env("DATABASE_PORT"),
+      database: env("DATABASE_NAME"),
+      user: 'env("DATABASE_USERNAME")',
+      password: env("DATABASE_PASSWORD"),
+      ssl: env("DATABASE_SSL", true)
+    }
+  }
+})
